@@ -1,5 +1,5 @@
-accessKey="AKIAIWHS2TPQ4UIOPZ7Q"
-secretKey="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"
+accessKey=""
+secretKey=""
 region="eu-west-1"
 instanceUsername="terraformuser"
 instancePassword="Password@123"
