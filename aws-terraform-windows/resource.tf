@@ -28,8 +28,13 @@ resource "aws_instance" "winServer" {
 
 
   provisioner "file" {
-    source      = "test.txt"
-    destination = "C:/test.txt"
+    source      = "scripts"
+    destination = "C:/windows/temp"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "powershell.exe -ExecutionPolicy Bypass -File C:/windows/temp/test.ps1"
+    ]
   }
   connection {
     host     = coalesce(self.public_ip, self.private_ip)

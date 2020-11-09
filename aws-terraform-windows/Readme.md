@@ -19,4 +19,5 @@ Ubuntu
     1. Terraform version
     2. terraform init
     3. terraform plan 
-    4. terraform apply -auto-approve
+    4. terraform apply -var-file=config.tfvars
+    5. terraform destroy -var-file=config.tfvars

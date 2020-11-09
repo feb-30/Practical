@@ -1,6 +1,6 @@
 # Internet VPC
 resource "aws_vpc" "main" {
-  cidr_block           = "10.0.0.0/16"
+  cidr_block           = var.vpcNetworkAddress
   instance_tenancy     = "default"
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
@@ -13,7 +13,7 @@ resource "aws_vpc" "main" {
 # Subnets
 resource "aws_subnet" "main-public-1" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = "10.0.1.0/24"
+  cidr_block              = var.subnetNetworkAddress
   map_public_ip_on_launch = "true"
   availability_zone       = "eu-west-1a"
 
