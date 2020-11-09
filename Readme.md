@@ -1,1 +1,1 @@
-terraform script for windows provision in aws
+this is practical guidance
