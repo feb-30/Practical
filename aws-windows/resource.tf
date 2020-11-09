@@ -5,7 +5,7 @@ resource "aws_key_pair" "mykey" {
 
 resource "aws_instance" "winServer" {
   ami                    = var.windowsAmi[var.region]
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   key_name               = aws_key_pair.mykey.key_name
   vpc_security_group_ids = [aws_security_group.security_group.id]
   subnet_id              = aws_subnet.main-public-1.id

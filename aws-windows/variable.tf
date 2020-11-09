@@ -43,3 +43,8 @@ variable "ports" {
     "3389" = ["0.0.0.0/0"]
   }
 }
+
+
+variable "instance_type" {
+  default = "t2.micro"
+}
