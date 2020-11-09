@@ -1,9 +1,9 @@
 variable "accessKey" {
-  default = "AKIAJC52CCCJTM46NDBA"
+  default = ""
 }
 
 variable "secretKey" {
-  default = "pg27p+owdivuCC7jNw2DSisKaDUqpjLC4QTcCUcc"
+  default = ""
 }
 
 variable "region" {
@@ -18,15 +18,15 @@ variable "windowsAmi" {
 }
 
 variable "privateKey" {
-  default = "test"
+  default = "ssh/test"
 }
 
 variable "publickey" {
-  default = "test.pub"
+  default = "ssh/test.pub"
 }
 
 variable "instanceUsername" {
-  default = "Terraform"
+  default = "terraformuser"
 }
 
 variable "instancePassword" {
