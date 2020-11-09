@@ -1,0 +1,8 @@
+accessKey=""
+secretKey=""
+region="eu-west-1"
+instanceUsername="terraformuser"
+instancePassword="Password@123"
+instance_type="t2.micro"
+privateKey="ssh/test"
+publickey="ssh/test.pub"
