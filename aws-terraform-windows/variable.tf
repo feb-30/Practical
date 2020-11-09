@@ -6,9 +6,9 @@ variable "instancePassword" {}
 variable "instance_type" {}
 variable "privateKey" {}
 variable "publickey" {}
-
 variable "vpcNetworkAddress" {}
 variable "subnetNetworkAddress" {}
+variable "tagname" {}
 
 variable "windowsAmi" {
   type = map(string)

@@ -18,7 +18,7 @@ resource "aws_subnet" "main-public-1" {
   availability_zone       = "eu-west-1a"
 
   tags = {
-    Name = "main-public-1"
+    Name = "${var.tagname}-subnet"
   }
 }
 
@@ -27,7 +27,7 @@ resource "aws_internet_gateway" "main-gw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "main"
+    Name = "${var.tagname}-gateway"
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_route_table" "main-public" {
   }
 
   tags = {
-    Name = "main-public-1"
+    Name = "${var.tagname}-routetable"
   }
 }
 
@@ -76,6 +76,6 @@ resource "aws_security_group" "security_group" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "windows server Security Group"
+    Name = "${var.tagname}-windows server Security Group"
   }
 }
