@@ -4,6 +4,9 @@ resource "aws_key_pair" "mykey" {
 }
 
 resource "aws_instance" "winServer" {
+  tags = {
+    Name = "${var.tagname}-windows-server"
+  }
   ami                    = var.windowsAmi[var.region]
   instance_type          = var.instance_type
   key_name               = aws_key_pair.mykey.key_name
