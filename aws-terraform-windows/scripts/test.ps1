@@ -41,3 +41,6 @@ $replace = 'bar'
 
 Remove-Item -Path $filePath
 Move-Item -Path $tempFilePath -Destination $filePath
+
+
+#https://stackoverflow.com/questions/31225541/simple-powershell-script-to-make-a-directory-share-it-with-everyone-permission-a
