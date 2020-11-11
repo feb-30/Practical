@@ -1,6 +1,12 @@
 $URL="https://da3hntz84uekx.cloudfront.net/QlikSense/13.95/0/_MSI/Qlik_Sense_setup.exe"
 Invoke-WebRequest $URL -OutFile c:\software\Qlik_Sense_setup.exe
 
+
+Ipaddress  $(ipconfig | where {$_ -match 'IPv4.+\s(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' } | out-null; $Matches[1])
+
+$env:computername | Select-Object
+
+
 $Username = "digit1"
 $Password = "pDigit@!@#@123"
 $group = "Administrators"
