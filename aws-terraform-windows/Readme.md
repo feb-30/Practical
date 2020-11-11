@@ -21,11 +21,10 @@ variables:
     instanceUsername    ="terraformuser"
     instancePassword    ="Password@123"
     instance_type       ="t2.micro"
-    privateKey          ="key/test"
-    publickey           ="key/test.pub"
     vpcNetworkAddress   ="10.0.0.0/16"
     subnetNetworkAddress="10.0.1.0/24"
     tagname             ="demo"
+    keyname             ="windows-server"
 
 commands
 
