@@ -50,3 +50,12 @@ Move-Item -Path $tempFilePath -Destination $filePath
 
 
 #https://stackoverflow.com/questions/31225541/simple-powershell-script-to-make-a-directory-share-it-with-everyone-permission-a
+
+
+
+New-Item 'c:\Parent-Directory\Sub-Directory' -ItemType Directory
+New-SMBShare –Name SharedFolder `
+             –Path C:\Parent-Directory `
+             –FullAccess Administrators `
+             -ChangeAccess 'Server Operators' `
+             -ReadAccess Users
