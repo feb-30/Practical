@@ -1,3 +1,9 @@
+New-Item 'c:\software' -ItemType Directory`
+Copy-Item -Path C:\windows\temp\spec1_cfg.txt  -Destination c:\software\spec1_cfg.txt
+
+
+
+
 $URL="https://da3hntz84uekx.cloudfront.net/QlikSense/13.95/0/_MSI/Qlik_Sense_setup.exe"
 Invoke-WebRequest $URL -OutFile c:\software\Qlik_Sense_setup.exe
 
@@ -32,13 +38,13 @@ Write-Host "Ensuring password for $Username never expires."
 
 
 
-$content = Get-Content -Path 'c:\software\scripts\spec1_cfg.txt'
+$content = Get-Content -Path 'c:\software\spec1_cfg.txt'
 $newContent = $content -replace '%computername%', $ComputerName
-$newContent | Set-Content -Path 'c:\software\scripts\spec1_cfg1.txt'
+$newContent | Set-Content -Path 'c:\software\spec1_cfg1.txt'
 
-$content = Get-Content -Path 'c:\software\scripts\spec1_cfg1.txt'
+$content = Get-Content -Path 'c:\software\spec1_cfg1.txt'
 $newContent = $content -replace 'localhost', $Ipaddress
-$newContent | Set-Content -Path 'c:\software\scripts\spec1_cfg.txt'
+$newContent | Set-Content -Path 'c:\software\spec1_cfg.txt'
 
 
 New-Item 'c:\QlikSenseStorage' -ItemType Directory
