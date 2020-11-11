@@ -9,6 +9,7 @@ variable "publickey" {}
 variable "vpcNetworkAddress" {}
 variable "subnetNetworkAddress" {}
 variable "tagname" {}
+variable "keyname" {}
 
 variable "windowsAmi" {
   type = map(string)

@@ -1,15 +1,10 @@
-resource "aws_key_pair" "mykey" {
-  key_name   = "mykey"
-  public_key = file(var.publickey)
-}
-
 resource "aws_instance" "winServer" {
   tags = {
     Name = var.tagname
   }
   ami                    = var.windowsAmi[var.region]
   instance_type          = var.instance_type
-  key_name               = aws_key_pair.mykey.key_name
+  key_name               = var.keyname
   vpc_security_group_ids = [aws_security_group.security_group.id]
   subnet_id              = aws_subnet.main-public-1.id
   user_data              = <<EOF
