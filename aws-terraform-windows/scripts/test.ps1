@@ -2,9 +2,8 @@ $URL="https://da3hntz84uekx.cloudfront.net/QlikSense/13.95/0/_MSI/Qlik_Sense_set
 Invoke-WebRequest $URL -OutFile c:\software\Qlik_Sense_setup.exe
 
 
-Ipaddress  $(ipconfig | where {$_ -match 'IPv4.+\s(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' } | out-null; $Matches[1])
-
-$env:computername | Select-Object
+$Ipaddress   = $(ipconfig | where {$_ -match 'IPv4.+\s(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' } | out-null; $Matches[1])
+$ComputerName = $env:computername | Select-Object
 
 
 $Username = "digit1"
@@ -34,28 +33,11 @@ Write-Host "Ensuring password for $Username never expires."
 
 
 $content = Get-Content -Path 'c:\software\scripts\spec1_cfg.txt'
-$newContent = $content -replace 'foo', 'bar'
-$newContent | Set-Content -Path 'c:\software\scripts\spec1_cfg.txt'
-
-
-$filePath = 'C:\file.txt'
-$tempFilePath = "$env:TEMP\$($filePath | Split-Path -Leaf)"
-$find = 'foo'
-$replace = 'bar'
-
-(Get-Content -Path $filePath) -replace $find, $replace | Add-Content -Path $tempFilePath
-
-Remove-Item -Path $filePath
-Move-Item -Path $tempFilePath -Destination $filePath
-
-
-#https://stackoverflow.com/questions/31225541/simple-powershell-script-to-make-a-directory-share-it-with-everyone-permission-a
+$newContent = $content -replace '%computername%', $ComputerName
+$newContent | Set-Content -Path 'c:\software\scripts\spec1_cfg1.txt'
 
 
 
-New-Item 'c:\Parent-Directory\Sub-Directory' -ItemType Directory
-New-SMBShare –Name SharedFolder `
-             –Path C:\Parent-Directory `
-             –FullAccess Administrators `
-             -ChangeAccess 'Server Operators' `
-             -ReadAccess Users
+New-Item 'c:\QlikSenseStorage' -ItemType Directory
+New-SMBShare –Name AdminUsedShares  –Path C:\QlikSenseStorage  –FullAccess 'Administrators'
+New-SMBShare –Name DigitUsedShares  –Path C:\QlikSenseStorage  –FullAccess 'digit1'
