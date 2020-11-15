@@ -1,5 +1,5 @@
 resource "aws_budgets_budget" "ec2" {
-  name              = "Ec2MonthlyBudget"
+  name              = var.budgetName
   budget_type       = "COST"
   limit_amount      = "0.1"
   limit_unit        = "USD"
@@ -29,14 +29,14 @@ resource "aws_budgets_budget" "ec2" {
     threshold                  = 85
     threshold_type             = "PERCENTAGE"
     notification_type          = "FORECASTED"
-    subscriber_email_addresses = ["jinojoe@gmail.com"]
+    subscriber_email_addresses = [var.subscriber_email_addresses]
   }
 }
 
 
 
 
-# create-budget-action  --account-id aws_budgets_budget.ec2.account_id --budget-name aws_budgets_budget.ec2.name 
+# create-budget-action  --account-id aws_budgets_budget.ec2.account_id --budget-name aws_budgets_budget.ec2.name
   --notification-type <value>
   --action-type <value>
   --action-threshold <value>

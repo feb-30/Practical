@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "policy" {
   name        = "BudgetActionPolicy"
   path        = "/"
-  description = "Budget Custom Actions"
+  description = "Budget Custom Actions Role"
   policy = <<EOF
 {
     "Version": "2012-10-17",
