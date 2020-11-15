@@ -1,6 +1,6 @@
 resource "null_resource" "example" {
   provisioner "local-exec" {
-    command = "chmod 0400 ssh/test; sleep 120;ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu --private-key ssh/test -i hosts main.yml -b"
+    command = "date"
   }
-  depends_on = [ aws_instance.instance ]
+  depends_on = [ aws_budgets_budget.ec2 ]
 }
