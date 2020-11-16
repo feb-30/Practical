@@ -1,0 +1,6 @@
+accessKey           =""
+secretKey           =""
+region              ="eu-west-1"
+lambdaname          ="lambda-aws-rds-stop"
+tagname             ="Name"
+tagvalue            ="demo"
