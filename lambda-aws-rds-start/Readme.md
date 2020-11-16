@@ -1,8 +1,8 @@
 Requirements
 
-    To stop ec2 instance use lambda function
+    To start rds instance use lambda function
 
-Instance tagname format
+rds Instance tagname format
 
         Name = demo
 
@@ -21,7 +21,7 @@ variables:
     accessKey           =""
     secretKey           =""
     region              ="eu-west-1"
-    lambdaname          ="lambda-aws-ec2-stop"
+    lambdaname          ="lambda-aws-rds-start"
     tagname             ="Name"
     tagvalue            ="demo"
 

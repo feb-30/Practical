@@ -38,8 +38,9 @@ resource "aws_iam_policy" "policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "ec2:Start*",
-        "ec2:DescribeInsta*",
+        "rds:StartDBInstan*",
+        "rds:DescribeDBInstan*",
+        "rds:ListTagsForResou*",
         "cloudwatch:*",
         "events:*"
       ],
