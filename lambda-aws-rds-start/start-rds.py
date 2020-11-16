@@ -17,7 +17,6 @@ instances = rds.describe_db_instances()['DBInstances']
 rdsInstances = []
 if instances:
     for i in instances:
-        print(i)
         if (i['DBInstanceStatus']) == 'stopped':
             arn = i['DBInstanceArn']
             RDSInstance = i['DBInstanceIdentifier']
@@ -25,7 +24,6 @@ if instances:
             for tag in tags:
                 if tag["Value"] == 'demo':
                     rdsInstances.append(RDSInstance)
-                    print(rdsInstances)
 
 if rdsInstances != []:
     for i in rdsInstances:

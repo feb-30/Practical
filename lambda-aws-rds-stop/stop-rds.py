@@ -17,12 +17,13 @@ instances = rds.describe_db_instances()['DBInstances']
 rdsInstances = []
 if instances:
     for i in instances:
-        arn = i['DBInstanceArn']
-        RDSInstance = i['DBInstanceIdentifier']
-        tags = rds.list_tags_for_resource(ResourceName=arn)['TagList']
-        for tag in tags:
-            if tag["Value"] == 'demo':
-                rdsInstances.append(RDSInstance)
+        if (i['DBInstanceStatus']) == 'available':
+            arn = i['DBInstanceArn']
+            RDSInstance = i['DBInstanceIdentifier']
+            tags = rds.list_tags_for_resource(ResourceName=arn)['TagList']
+            for tag in tags:
+                if tag["Value"] == 'demo':
+                    rdsInstances.append(RDSInstance)
 
 if rdsInstances != []:
     for i in rdsInstances:
