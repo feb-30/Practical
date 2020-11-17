@@ -1,5 +1,5 @@
-accessKey           =""
-secretKey           =""
+# accessKey           =""
+# secretKey           =""
 region              ="eu-west-1"
-budgetName          ="Ec2MonthlyBudget"
+budgetName          ="Ec2MonthlyBudgets"
 subscriber_email_addresses = "jinojoe@gmail.com"

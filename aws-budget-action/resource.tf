@@ -24,12 +24,12 @@ resource "aws_budgets_budget" "ec2" {
     use_blended                = false
   }
 
-  notification {
-    comparison_operator        = "GREATER_THAN"
-    threshold                  = 85
-    threshold_type             = "PERCENTAGE"
-    notification_type          = "FORECASTED"
-    subscriber_email_addresses = [var.subscriber_email_addresses]
-  }
+  # notification {
+  #   comparison_operator        = "GREATER_THAN"
+  #   threshold                  = 85
+  #   threshold_type             = "PERCENTAGE"
+  #   notification_type          = "FORECASTED"
+  #   subscriber_email_addresses = [var.subscriber_email_addresses]
+  # }
 }
 
