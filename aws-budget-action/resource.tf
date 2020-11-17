@@ -37,14 +37,14 @@ resource "aws_budgets_budget" "ec2" {
 
 
 # create-budget-action  --account-id aws_budgets_budget.ec2.account_id --budget-name aws_budgets_budget.ec2.name
-  --notification-type <value>
-  --action-type <value>
-  --action-threshold <value>
-  --definition <value>
-  --execution-role-arn <value>
-  --approval-model <value>
-  --subscribers <value>
-  [--cli-input-json <value>]
-  [--generate-cli-skeleton <value>]
+  # --notification-type <value>
+  # --action-type <value>
+  # --action-threshold <value>
+  # --definition <value>
+  # --execution-role-arn <value>
+  # --approval-model <value>
+  # --subscribers <value>
+  # [--cli-input-json <value>]
+  # [--generate-cli-skeleton <value>]
 
 # https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget-action.html
