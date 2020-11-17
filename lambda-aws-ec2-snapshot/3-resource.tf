@@ -19,8 +19,8 @@ resource "aws_lambda_function" "test_lambda" {
 
   environment {
     variables = {
-      region = var.region
-      tagvalue = var.tagvalue
+      region  = var.region
+      tagvalue= var.tagvalue
       tagname = var.tagname
     }
   }
@@ -29,7 +29,7 @@ resource "aws_lambda_function" "test_lambda" {
 resource "aws_cloudwatch_event_rule" "every_one_minute" {
   name                = "${var.lambdaname}-event-rule"
   description         = "7-00 PM Monday through Fridays"
-  schedule_expression = "cron(0 7 ? * MON-FRI *)"
+  schedule_expression = "cron(0 0/4 * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "check_foo_every_one_minute" {

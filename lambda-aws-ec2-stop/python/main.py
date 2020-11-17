@@ -5,6 +5,7 @@ region = os.environ['region']
 tagname = os.environ['tagname']
 tagvalue = os.environ['tagvalue']
 
+
 def lambda_handler(event, context):
     ec2 = boto3.client('ec2', region_name=region)
     response = ec2.describe_instances(
