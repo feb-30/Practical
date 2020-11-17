@@ -1,6 +1,6 @@
 resource "aws_iam_policy" "policy" {
   name        = "BudgetActionPolicy"
-  path    = "/"
+  path        = "/"
   description = "Budget Custom Actions Role"
   policy = <<EOF
 {
