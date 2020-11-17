@@ -18,7 +18,7 @@ variables:
     secretKey                  =""
     region                     ="eu-west-1"
     budgetName                 ="Ec2MonthlyBudget"
-    subscriber_email_addresses = "jinojoe@gmail.com"
+    subscriber_email_addresses ="jinojoe@gmail.com"
 
 commands
 
