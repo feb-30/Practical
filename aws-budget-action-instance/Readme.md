@@ -35,7 +35,11 @@ Alerts:
     60% trigger warning mail to customer
     70% trigger warning mail to customer
     80% trigger warning mail to customer
-    90% trigger mail and stop the ec2 instance (Group  Mail)
+    90% trigger mail and stop the ec2 instance (Group  Mail) 
+
+    Note:
+
+        90% mentioned in script.sh (default value)
 
 variables:
 
