@@ -32,10 +32,10 @@ Reference:
 
 Alerts:
 
-   60% trigger warning mail to customer
-   70% trigger warning mail to customer
-   80% trigger warning mail to customer
-   90% trigger mail and stop the ec2 instance (Group  Mail)
+    60% trigger warning mail to customer
+    70% trigger warning mail to customer
+    80% trigger warning mail to customer
+    90% trigger mail and stop the ec2 instance (Group  Mail)
 
 variables:
 
