@@ -1,4 +1,8 @@
-terraform script for create budget action (single ec2 instance) in aws
+terraform script for create budget action in aws
+
+Instance tagname
+
+    Name = demo
 
 Requirement Packages
 
