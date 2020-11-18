@@ -1,5 +1,5 @@
-# accessKey     = ""
-# secretKey     = ""
+accessKey     = ""
+secretKey     = ""
 region        = "eu-west-1"
 budgetName    = "Ec2MonthlyBudgets"
 tagName       = "Name"
@@ -13,4 +13,4 @@ time_period_start = "2020-11-01_00:00"
 time_period_end   = "2087-06-15_00:00"
 subscriber_email_addresses = ["jinojoe@gmail.com","jjino@gmail.com"]
 group_email_address = "jinojoe@gmail.com"
-limits = [60,70,80]
+limits              = [ 60, 70, 80]

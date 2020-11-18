@@ -35,7 +35,7 @@ Alerts:
    60% trigger warning mail to customer
    70% trigger warning mail to customer
    80% trigger warning mail to customer
-   90% trigger warning mail and stop the ec2 instance
+   90% trigger mail and stop the ec2 instance (Group  Mail)
 
 variables:
 
@@ -45,14 +45,16 @@ variables:
     budgetName    = "Ec2MonthlyBudgets"
     tagName       = "Name"
     tagValue      = "demo"
+    timeUnit      = "MONTHLY"
     limit_unit    = "USD"
     limit_amount  = "100"
     budget_type   = "COST"
     ActionSubType = "STOP_EC2_INSTANCES"
     time_period_start = "2020-11-01_00:00"
     time_period_end   = "2087-06-15_00:00"
-    timeUnit      = "MONTHLY"
-    subscriber_email_addresses = "jinojoe@gmail.com"
+    subscriber_email_addresses = ["jinojoe@gmail.com","jjino@gmail.com"]
+    group_email_address = "jinojoe@gmail.com"
+    limits              = [ 60, 70, 80]
 
 commands
 
