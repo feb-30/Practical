@@ -25,7 +25,13 @@ Reference:
         
     https://www.terraform.io/downloads.html
 
-changable variable parameters
+Alerts:
+
+   60% trigger warning mail to customer
+   70% trigger warning mail to customer
+   80% trigger warning mail to customer
+   90% trigger warning mail and stop the ec2 instance
+
 variables:
 
     accessKey     = ""
