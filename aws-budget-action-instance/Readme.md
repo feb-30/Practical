@@ -1,5 +1,10 @@
 terraform script for create budget action in aws
 
+tools:
+
+    1. terraform
+    2. shell script
+
 Instance tagname
 
     Name = demo
