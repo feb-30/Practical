@@ -1,14 +1,14 @@
 resource "aws_budgets_budget" "ec2" {
   name              = var.budgetName
-  budget_type       = "COST"
-  limit_amount      = "0.1"
-  limit_unit        = "USD"
+  budget_type       = var.budget_type
+  limit_amount      = var.limit_amount
+  limit_unit        = var.limit_unit
   time_period_end   = "2087-06-15_00:00"
   time_period_start = "2020-11-01_00:00"
-  time_unit         = "MONTHLY"
+  time_unit         = var.timeUnit
 
   cost_filters = {
-    TagKeyValue = "key$demo"
+    TagKeyValue = "key$${var.tagValue}"
   }
 
   cost_types {
