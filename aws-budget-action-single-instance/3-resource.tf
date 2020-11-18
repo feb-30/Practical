@@ -3,8 +3,8 @@ resource "aws_budgets_budget" "ec2" {
   budget_type       = var.budget_type
   limit_amount      = var.limit_amount
   limit_unit        = var.limit_unit
-  time_period_end   = "2087-06-15_00:00"
-  time_period_start = "2020-11-01_00:00"
+  time_period_end   = var.time_period_end
+  time_period_start = var.time_period_start
   time_unit         = var.timeUnit
 
   cost_filters = {
@@ -32,4 +32,3 @@ resource "aws_budgets_budget" "ec2" {
   #   subscriber_email_addresses = [var.subscriber_email_addresses]
   # }
 }
-

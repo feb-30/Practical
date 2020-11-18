@@ -1,6 +1,9 @@
-terraform script for create budget action in aws
+terraform script for create budget action (single ec2 instance) in aws
 
-Requirements
+Requirement Packages
+
+    1. terraform
+    2  Awscli
 
 Ubuntu
 
@@ -8,25 +11,41 @@ Ubuntu
     $ unzip terraform_0.13.5_linux_amd64.zip
     $ sudo mv terraform /usr/local/bin
 
+    $ sudo apt install python3-pip awscli -y
+
+configure aws credentials
+
+    $ aws configure
+
 Reference: 
         
     https://www.terraform.io/downloads.html
 
+changable variable parameters
 variables:
 
-    accessKey                  =""
-    secretKey                  =""
-    region                     ="eu-west-1"
-    budgetName                 ="Ec2MonthlyBudget"
-    subscriber_email_addresses ="jinojoe@gmail.com"
+    accessKey     = ""
+    secretKey     = ""
+    region        = "eu-west-1"
+    budgetName    = "Ec2MonthlyBudgets"
+    tagName       = "Name"
+    tagValue      = "demo"
+    limit_unit    = "USD"
+    limit_amount  = "100"
+    budget_type   = "COST"
+    ActionSubType = "STOP_EC2_INSTANCES"
+    time_period_start = "2020-11-01_00:00"
+    time_period_end   = "2087-06-15_00:00"
+    timeUnit      = "MONTHLY"
+    subscriber_email_addresses = "jinojoe@gmail.com"
 
 commands
 
     1. terraform version
     2. terraform init
-    3. terraform plan    -var-file=config.tfvars
-    4. terraform apply   -var-file=config.tfvars
-    5. terraform destroy -var-file=config.tfvars
+    3. terraform plan    -var-file=6-config.tfvars
+    4. terraform apply   -var-file=6-config.tfvars
+    5. terraform destroy -var-file=6-config.tfvars
 
 
 Reference
