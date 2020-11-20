@@ -40,6 +40,7 @@ resource "aws_iam_policy" "policy" {
       "Action": [
         "ec2:Start*",
         "ec2:DescribeInsta*",
+        "ec2:Snap*",
         "cloudwatch:*",
         "events:*"
       ],
