@@ -1,6 +1,6 @@
 Requirements
 
-    To stop ec2 instance use lambda function
+    To ec2 instance snapshot use lambda function
 
 Instance tagname
 
