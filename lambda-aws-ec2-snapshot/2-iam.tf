@@ -1,5 +1,5 @@
 resource "aws_iam_role" "iam_for_lambda" {
-  name = "lambda-ec2-start-iamrole"
+  name = "${var.lambdaname}-iam-rule"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -19,9 +19,9 @@ EOF
 
 
 resource "aws_iam_policy" "policy" {
-  name        = "lambda-ec2-start-iamrole-policy"
+  name        = "${var.lambdaname}-iamrole-policy"
   path        = "/"
-  description = "lambda ec2 start iamrole policy"
+  description = "${var.lambdaname} iamrole policy"
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -40,6 +40,10 @@ resource "aws_iam_policy" "policy" {
       "Action": [
         "ec2:Start*",
         "ec2:DescribeInsta*",
+        "ec2:DescribeVolume*",
+        "ec2:CreateTag*",
+        "ec2:DescribeTag*",
+        "ec2:DescribeSnapshot*",
         "ec2:DeleteSnapsho*",
         "ec2:CreateSnapsho*",
         "cloudwatch:*",
@@ -52,7 +56,7 @@ resource "aws_iam_policy" "policy" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "test-attach" {
+resource "aws_iam_role_policy_attachment" "attach" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = aws_iam_policy.policy.arn
 }

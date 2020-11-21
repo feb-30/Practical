@@ -14,7 +14,6 @@ region = os.environ['region']
 tagname = os.environ['tagname']
 tagvalue = os.environ['tagvalue']
 
-
 def lambda_handler(event, context):
     ec2 = boto3.resource('ec2', region_name=region)
     instances = ec2.instances.filter(
