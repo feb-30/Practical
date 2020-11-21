@@ -21,7 +21,7 @@ variables:
     accessKey           =""
     secretKey           =""
     region              ="eu-west-1"
-    lambdaname          ="lambda-aws-ec2-start"
+    lambdaname          ="lambda-aws-ec2-snopshot"
     tagname             ="Name"
     tagvalue            ="demo"
 
