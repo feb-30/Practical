@@ -34,8 +34,8 @@ commands
     5. terraform destroy -var-file=5-variable.tfvars
 
 
-| crontab timing |
-| --------------- |
+| crontab timing | Days |
+| --------------- | --------------- |
 | 00:00 | Daily |
 | 04:00 | Daily | 
 | 08:00 | Dialy |

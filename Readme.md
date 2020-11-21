@@ -1,7 +1,7 @@
 Practical 
 
 | actions | status |
-| --------------- |
+| --------------- | --------------- |
 | aws-budget-action-instance | Completed |
 | aws-terraform-windows | Completed | 
 | cloudformationkit | Completed |
