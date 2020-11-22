@@ -54,10 +54,6 @@ resource "aws_iam_role" "test_role" {
   ]
 }
 EOF
-
-  tags = {
-    var.tagName = var.tagValue
-  }
 }
 
 
