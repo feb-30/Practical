@@ -2,5 +2,5 @@
 # secretKey           =""
 region              ="eu-west-1"
 lambdaname          ="lambda-aws-ec2-stop"
-tagname             ="Name"
-tagvalue            ="demo"
+tagName             ="office-hours"
+tagValue            ="ec-data-platform"

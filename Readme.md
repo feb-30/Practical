@@ -1,5 +1,11 @@
 Practical 
 
+Aws tasks are defined below tags
+
+    office-hours = ec-data-platform
+
+Actions:
+
 | serial number | actions | status |
 | --------------- |--------------- | --------------- |
 | 1 | aws-budget-action-instance | Completed |
