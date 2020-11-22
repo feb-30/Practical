@@ -2,8 +2,8 @@
 #secretKey     = ""
 region        = "eu-west-1"
 budgetName    = "Ec2MonthlyBudgets"
-tagName       = "office-hours"
-tagValue      = "ec-data-platform"
+tagName       = "Name
+tagValue      = "demo"
 timeUnit      = "MONTHLY"
 limit_unit    = "USD"
 limit_amount  = "100"
