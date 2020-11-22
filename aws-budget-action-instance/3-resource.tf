@@ -8,7 +8,7 @@ resource "aws_budgets_budget" "ec2" {
   time_unit         = var.timeUnit
 
   cost_filters = {
-    TagKeyValue = "key$${var.tagValue}"
+    TagKeyValue = "key$ec-data-platform"
   }
 
   cost_types {
