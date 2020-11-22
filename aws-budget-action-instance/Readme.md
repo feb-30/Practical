@@ -7,7 +7,7 @@ tools:
 
 Instance tagname
 
-    Name = demo
+    office-hours = ec-data-platform
 
 Requirement Packages
 
