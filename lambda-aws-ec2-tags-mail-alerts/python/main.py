@@ -5,10 +5,10 @@ import os
 today = datetime.date.today()
 today_string = today.strftime('%Y-%m-%d')
 
-AWS_REGION = 'eu-west-1'# os.environ['region']
+AWS_REGION = os.environ['region']
 tagname = "Name"
-SENDER = "notification mail <jinojoe@gmail.com>"
 RECIPIENT = "jinojoe@gmail.com"
+SENDER = os.environ['fromAddress']
 
 def lambda_handler(event, context):
 
@@ -88,4 +88,3 @@ def lambda_handler(event, context):
             Source=SENDER
         )
         print(response['MessageId'])
-lambda_handler("event", "context")

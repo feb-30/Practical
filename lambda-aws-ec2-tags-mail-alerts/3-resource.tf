@@ -20,6 +20,7 @@ resource "aws_lambda_function" "lambdaFn" {
   environment {
     variables = {
       region  = var.region
+      fromAddress=var.fromAddress
     }
   }
 }
@@ -42,4 +43,8 @@ resource "aws_lambda_permission" "allow_cloudwatch_to_call_check_foo" {
   function_name = aws_lambda_function.lambdaFn.function_name
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.minitues.arn
+}
+
+resource "aws_ses_email_identity" "ses" {
+  email = var.fromAddress
 }
