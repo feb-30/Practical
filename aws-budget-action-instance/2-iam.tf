@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "policy" {
-  name        = "BudgetActionPolicys"
+  name        = "${var.lambdaname}BudgetActionPolicys"
   path        = "/"
   description = "Budget Custom Actions Role"
   policy = <<EOF
@@ -38,7 +38,7 @@ EOF
 }
 
 resource "aws_iam_role" "test_role" {
-  name = "test_roles"
+  name = "${var.lambdaname}_roles"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
