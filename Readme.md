@@ -7,7 +7,7 @@ Aws tasks are defined below tags
 Actions:
 
 | serial number | actions | status |
-| --------------- |--------------- | --------------- |
+| --------------- | --------------- | --------------- |
 | 1 | aws-budget-action-instance | Completed |
 | 2 | aws-terraform-windows | Completed | 
 | 3 | cloudformationkit | Completed |
@@ -17,4 +17,3 @@ Actions:
 | 7 | lambda-aws-rds-start | Completed |
 | 8 | lambda-aws-rds-stop | Completed |
 | 8 | lambda-aws-ec2-tags-mail-alerts | Completed |
-
