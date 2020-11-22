@@ -35,8 +35,4 @@ commands
 | crontab timing | Days |
 | --------------- | --------------- |
 | 00:00 | Daily |
-| 04:00 | Daily | 
-| 08:00 | Dialy |
-| 12:00 | Daily |
-| 16:00 | Daily |
-| 20:00 | Daily |
+

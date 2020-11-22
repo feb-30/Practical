@@ -28,7 +28,7 @@ resource "aws_lambda_function" "lambdaFn" {
 resource "aws_cloudwatch_event_rule" "minitues" {
   name                = "${var.lambdaname}-event-rule"
   description         = "7-00 PM Monday through Fridays"
-  schedule_expression = "cron(0 0/4 * * ? *)"
+  schedule_expression = "cron(0 0 * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "event_target" {
