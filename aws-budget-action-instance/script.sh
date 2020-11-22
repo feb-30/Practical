@@ -3,7 +3,11 @@
 sleep 10
 
 # CommandLine => Reference
-export instanceIds=$(aws ec2 describe-instances --filters "Name=tag:$7,Values=$8"  --query "Reservations[*].Instances[*].[InstanceId]" --region=eu-west-1 --output text | paste -s -d, -)
+
+instanceIds=$(aws ec2 describe-instances --filters "Name=tag:$7,Values=$8"  --query "Reservations[*].Instances[*].[InstanceId]" --region=$4 --output text | paste -s -d, -)
+
+# export instanceIds=$(aws ec2 describe-instances --filters "Name=tag:$7,Values=$8"  --query "Reservations[*].Instances[*].[InstanceId]" --region=$4 --output text | paste -s -d, -)
+
 
 # CommandLine => Reference
 aws budgets create-budget-action --account-id $1 --budget-name $2 --notification-type ACTUAL --action-type RUN_SSM_DOCUMENTS --action-threshold ActionThresholdValue=90,ActionThresholdType=PERCENTAGE --definition "SsmActionDefinition={ActionSubType=$3,Region=$4,InstanceIds=[$instanceIds]}" --execution-role-arn $5 --approval-model AUTOMATIC --subscribers SubscriptionType=EMAIL,Address=$6
