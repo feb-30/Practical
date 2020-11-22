@@ -1,5 +1,5 @@
-accessKey     = ""
-secretKey     = ""
+#accessKey     = ""
+#secretKey     = ""
 region        = "eu-west-1"
 budgetName    = "Ec2MonthlyBudgets"
 tagName       = "office-hours"
