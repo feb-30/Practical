@@ -16,4 +16,7 @@ Actions:
 | 6 | lambda-aws-ec2-stop | Completed |
 | 7 | lambda-aws-rds-start | Completed |
 | 8 | lambda-aws-rds-stop | Completed |
-| 8 | lambda-aws-ec2-tags-mail-alerts | Completed |
+| 9 | lambda-aws-ec2-tags-mail-alerts | Completed |
+| 10 | lambda-aws-budget-action-instance | Completed |
+
+
