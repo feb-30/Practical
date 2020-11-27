@@ -5,10 +5,11 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 
-
 REGION = os.environ['region']
 ROLE = os.environ['executionRole']
 BUDGET_NAME = os.environ['budgetName']
+
+
 ACCOUNT_ID = boto3.client('sts').get_caller_identity()['Account']
 
 NOTIFICATION_LISTS = [{
@@ -119,7 +120,8 @@ def lambda_handler(event, context):
         TOTAL_BUDGETS = len(response['Budgets'])
         for i in range(TOTAL_BUDGETS):
             if (response['Budgets'][i]['BudgetName']) == BUDGET_NAME:
-                DeleteCreateNotification(AccountId=ACCOUNT_ID, BudgetName=BUDGET_NAME)
+                DeleteCreateNotification(
+                    AccountId=ACCOUNT_ID, BudgetName=BUDGET_NAME)
                 # CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])
 
     else:
@@ -160,8 +162,5 @@ def lambda_handler(event, context):
         for i in range(TOTALALERTS):
             CreateNotification(AccountId=ACCOUNT_ID, BudgetName=BUDGET_NAME,
                                NotificationItem=NOTIFICATION_LISTS[i], Address=emailaddress[i])
-        logger.info('## ENVIRONMENT VARIABLES')
-        logger.info(os.environ)
-        logger.info('## EVENT')
-        logger.info(event)
+
         # CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])

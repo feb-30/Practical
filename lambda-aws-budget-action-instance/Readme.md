@@ -48,3 +48,19 @@ commands
     3. terraform plan    -var-file=5-config.tfvars
     4. terraform apply   -var-file=5-config.tfvars
     5. terraform destroy -var-file=5-config.tfvars
+
+Errors:
+    
+        lambda => python3.8 => boto3 => "'Budgets' object has no attribute 'create_budget_action'"
+
+        Error throw:
+
+        {
+        "errorMessage": "'Budgets' object has no attribute 'create_budget_action'",
+        "errorType": "AttributeError",
+        "stackTrace": [
+            "  File \"/var/task/main.py\", line 123, in lambda_handler\n    CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])\n",
+            "  File \"/var/task/main.py\", line 86, in CreateBudgetAction\n    client.create_budget_action(\n",
+            "  File \"/var/runtime/botocore/client.py\", line 614, in __getattr__\n    raise AttributeError(\n"
+        ]
+        }
