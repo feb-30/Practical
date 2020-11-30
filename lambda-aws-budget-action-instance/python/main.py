@@ -4,7 +4,6 @@ from pip._internal import main
 main(['install', '-I', '-q', 'boto3', '--target', '/tmp/', '--no-cache-dir', '--disable-pip-version-check'])
 sys.path.insert(0,'/tmp/')
 
-
 import boto3
 import os
 import logging
@@ -16,6 +15,23 @@ REGION = os.environ['region']
 ROLE = os.environ['executionRole']
 BUDGET_NAME = os.environ['budgetName']
 
+tagname = "office-hours"
+tagvalue = "ec-data-platform"
+
+ec2 = boto3.client('ec2', region_name="eu-west-1")
+response = ec2.describe_instances(
+    Filters=[
+        {
+            'Name': 'tag:'+tagname,
+            'Values': [tagvalue]
+        }
+    ]
+)
+
+instancelist = []
+for reservation in (response["Reservations"]):
+    for instance in reservation["Instances"]:
+        instancelist.append(instance["InstanceId"])
 
 ACCOUNT_ID = boto3.client('sts').get_caller_identity()['Account']
 
@@ -104,9 +120,7 @@ def CreateBudgetAction(AccountId, BudgetName, ExecutionRoleArn, Region, Address)
             'SsmActionDefinition': {
                 'ActionSubType': 'STOP_EC2_INSTANCES',
                 'Region': REGION,
-                'InstanceIds': [
-                    'i-0c783732fd7710cd2',
-                ]
+                'InstanceIds': instancelist
             }
         },
         ExecutionRoleArn=ROLE,
@@ -129,7 +143,8 @@ def lambda_handler(event, context):
             if (response['Budgets'][i]['BudgetName']) == BUDGET_NAME:
                 DeleteCreateNotification(
                     AccountId=ACCOUNT_ID, BudgetName=BUDGET_NAME)
-                # CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])
+        if instancelist != '':
+            CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])
 
     else:
         response = client.create_budget(
@@ -169,5 +184,5 @@ def lambda_handler(event, context):
         for i in range(TOTALALERTS):
             CreateNotification(AccountId=ACCOUNT_ID, BudgetName=BUDGET_NAME,
                                NotificationItem=NOTIFICATION_LISTS[i], Address=emailaddress[i])
-
-        # CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])
+        if instancelist != '':
+            CreateBudgetAction(AccountId=ACCOUNT_ID,BudgetName=BUDGET_NAME, ExecutionRoleArn=ROLE, Region=REGION, Address=emailaddress[0])
