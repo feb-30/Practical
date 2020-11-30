@@ -1,3 +1,10 @@
+import sys
+from pip._internal import main
+
+main(['install', '-I', '-q', 'boto3', '--target', '/tmp/', '--no-cache-dir', '--disable-pip-version-check'])
+sys.path.insert(0,'/tmp/')
+
+
 import boto3
 import os
 import logging
