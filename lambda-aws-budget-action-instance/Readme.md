@@ -52,3 +52,9 @@ commands
 Cron timing:
 
     every day - 00:00
+
+
+
+Reference:
+
+    https://stackoverflow.com/questions/53736963/aws-lambda-console-upgrade-boto3-version
