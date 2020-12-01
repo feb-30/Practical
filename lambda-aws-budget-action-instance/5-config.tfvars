@@ -2,6 +2,6 @@
 #secretKey     = ""
 region         = "eu-west-1"
 lambdaname     = "lambda-aws-budget-action"
-budgetName    = "JINOBUDGETS"
+budgetName    = "dataplatformbudget"
 tagName       = "office-hours"
 tagValue      = "ec-data-platform"
